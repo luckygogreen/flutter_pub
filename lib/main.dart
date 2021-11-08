@@ -32,22 +32,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 0.1,
+        title: const Text('Flutter字典'),
       ),
-      body: ListView(
-        children: [
-          CustomerTextButton(
-            text: '1.右滑显示删除图标',
-          ),
-        ],
+      body: Container(
+        color: Colors.blue.shade100,
+        width: double.infinity,
+        alignment: Alignment.centerRight,
+        child: ListView(
+          children: [
+            CustomerTextButton(text: '1.右滑显示删除图标', type: 1),
+            const Divider(height: 20, color: Colors.black),
+            CustomerTextButton(text: '2.删除列表中的数据', type: 2),
+          ],
+        ),
       ),
     );
   }
 }
 
 class CustomerTextButton extends StatefulWidget {
-  CustomerTextButton({Key? key, required this.text}) : super(key: key);
+  CustomerTextButton({Key? key, required this.text, required this.type})
+      : super(key: key);
   final String text;
+  final int type;
 
   @override
   _CustomerTextButtonState createState() => _CustomerTextButtonState();
@@ -57,15 +64,25 @@ class _CustomerTextButtonState extends State<CustomerTextButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Text(
-        widget.text,
-        style: const TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          widget.text,
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
         ),
       ),
-      onPressed: () => Navigator.pushNamed(context, '/slidercontrol'),
+      onPressed: () {
+        if (widget.type == 1) {
+          Navigator.pushNamed(context, '/slidercontrol');
+        }
+        if (widget.type == 2) {
+          Navigator.pushNamed(context, '/delete/map/in/list');
+        }
+      },
     );
   }
 }

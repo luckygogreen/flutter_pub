@@ -29,7 +29,6 @@ class _SliderControllerState extends State<SliderController> {
   }
 
   void handleSlideAnimationChanged(Animation<double>? slideAnimation) {
-    print(slideAnimation);
     setState(() {
       _rotationAnimation = slideAnimation;
     });
@@ -79,7 +78,6 @@ class _SliderControllerState extends State<SliderController> {
       ),
       actionPane: _getActionPane(item.index)!,
       actionExtentRatio: 0.25,
-      child: VerticalListItem(items[index]),
       secondaryActions: <Widget>[
         IconSlideAction(
           caption: 'More',
@@ -95,6 +93,7 @@ class _SliderControllerState extends State<SliderController> {
           onTap: () => _showSnackBar(context, 'Delete'),
         ),
       ],
+      child: VerticalListItem(items[index]),
     );
   }
 
@@ -114,8 +113,8 @@ class _SliderControllerState extends State<SliderController> {
 }
 
 class VerticalListItem extends StatelessWidget {
-  VerticalListItem(this.item);
   final _HomeItem item;
+  VerticalListItem(this.item);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
