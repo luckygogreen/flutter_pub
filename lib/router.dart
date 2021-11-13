@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pub/page/delete_map_in_list.dart';
+import './page/delete_map_in_list.dart';
 import './page/slider_controller.dart';
+import './page/icon_restore_save.dart';
 
 //配置路由
 final Map<String, Function> routes = {
   // '/': (context) => StartPage(),
   '/slidercontrol': (context) => SliderController(),
   '/delete/map/in/list': (context) => DeleteMapInList(),
+  '/icon/save/restore': (context) => IconSaveDatabaseOrRestore(),
   // '/home': (context) => HomePage(),
   // '/business/update': (context, {arguments}) =>
   //     UpdateBusinessInfo(arguments: arguments),

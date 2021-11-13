@@ -43,6 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
             CustomerTextButton(text: '1.右滑显示删除图标', type: 1),
             const Divider(height: 20, color: Colors.black),
             CustomerTextButton(text: '2.删除列表中的数据', type: 2),
+            const Divider(height: 20, color: Colors.black),
+            CustomerTextButton(text: '3.保存或读取图标', type: 3),
           ],
         ),
       ),
@@ -81,6 +83,9 @@ class _CustomerTextButtonState extends State<CustomerTextButton> {
         }
         if (widget.type == 2) {
           Navigator.pushNamed(context, '/delete/map/in/list');
+        }
+        if (widget.type == 3) {
+          Navigator.pushNamed(context, '/icon/save/restore');
         }
       },
     );
